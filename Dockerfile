@@ -1,11 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM registry.fedoraproject.org/fedora:latest
-CMD ["echo", "Hello!"]
 
 # copy repository, data and dependencies into container
-COPY --chmod=777 medlands/ /app/medlands/
-COPY --chmod=777 grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018-install.sh /app/grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018-install.sh
-COPY grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018.tar.gz /app/grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018.tar.gz
+COPY --chmod=777 . /app/medlands/
 
 # install system-level dependencies
 RUN dnf -y update && \
@@ -14,12 +11,16 @@ RUN dnf -y update && \
     dnf clean all
 
 # install GRASS 6.4 and its dependencies
-RUN /app/grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018-install.sh /app/grass/grass-6.4.6svn-x86_64-pc-linux-gnu-25_08_2018.tar.gz
+# TODO once determine adequate source for SPECIFIC grass
 
 # MedLands Setup Steps
+# TODO
 
+# Verify installed versions
 CMD ["sh", "-c", "python3 --version && java --version"]
 
+# TODO don't hard-code a user path
 ENV PATH="/home/moss/asu:/usr/bin:$PATH"
 
-CMD ["java", "-jar", "/app/medlands/code/MML/MMLv1.jar"]
+# TODO update with appropriate entry point. gradio.app entry point?
+# CMD ["java", "-jar", "/app/medlands/code/MML/MMLv1.jar"]
