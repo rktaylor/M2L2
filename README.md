@@ -22,4 +22,38 @@ On Ubuntu:
 On MacOS: TODO
 
 ## First Run
-TODO, steps in order
+Once podman and distrobox are installed,
+
+1. Build the container image:
+> podman build -f Dockerfile -t medpod:1
+
+This will trigger a local container image build. (If a version of this container is hosted in a registry, you may pull it instead.)
+The `f` flag points podman to the configuration to build, and `t` tells it what to name the resulting container.
+
+The number after the `:` is the tag, and is used to version images. You can vary the name and tag however you please -- they are organizational tools for keeping your workspace ordered.
+
+You will see a lot of output text, and it will take time, even on new systems.
+
+2. Build the distrobox
+> distrobox create --name db --image medpod:1 
+
+Like before, `--name` names the *distrobox* runtime, and `--image` specifies what *container image* to build that runtime from. 
+
+3. Launch program
+> distrobox enter db
+
+This step requires the name of the distrobox runtime, NOT the container image. This will appear to do nothing, loading a new prompt for your shell. The advantage of distrobox is that it makes containers run in such a way that they *appear* to be native apps.
+
+To make sure you're actually "in" the container:
+
+> ls /app/
+
+This should show a folder called `medlands`. If so, you're in the container! (This path won't exist in a shell outside the container, unless you create it, which you shouldn't need to.)
+
+4. Use Conda to Launch
+Python dependencies and Grass are managed through Conda. To launch,
+
+> bash
+> conda activate runtime
+
+This should change your prompt to say `(runtime)` at the beginning. Now you have access to all your required dependencies, and can begin work.
