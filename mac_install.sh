@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# ATTRIBUTION:
+# THIS CODE was forked directly from 
+# https://gist.github.com/gianlucamazza/f9b57d6796a97981908f7c2bbda706fc
+# Why fork instead of depend on the repository?
+# Security. The code in its current form was audited by a human being as a security sanity check.
+
 # Strict mode: exit on error, exit on unset variable, pipefail
 set -euo pipefail
 
