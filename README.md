@@ -48,6 +48,13 @@ This should say "Linux" followed by a bunch of system/user specific information.
 
 To return to your normal shell.
 
+### Additional Mac Requirements
+For GUIs, you'll need to install and configure xquartz for X11 forwarding.
+
+> brew install --cask xquartz
+
+(TODO - complete later)
+
 ## First Run
 Once podman and distrobox are installed,
 
