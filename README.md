@@ -19,7 +19,34 @@ On MacOS: defer to the official documentation [here](https://podman-desktop.io/d
 On Ubuntu:
 > sudo apt install distrobox
 
-On MacOS: TODO
+On MacOS:
+This is technically not supported, and made possible only through community effort. Proceed with caution.
+
+>podman machine init
+>podman machine start
+
+This will prepare podman as a runtime.
+
+The installer script `mac_install.sh` was pulled [from this github with no license file](https://gist.github.com/gianlucamazza/f9b57d6796a97981908f7c2bbda706fc) as a safety measure. The code within has been read by a human and probably isn't malware.
+
+(To be certain something isn't malware, read it yourself.)
+(Even then, there's always something in the stack we're putting inside our trust boundary for our threat models. Unless we build the computer ourself from scratch, we can never be completely certain.)
+
+To run it:
+> bash mac_installer.sh
+
+To test your distrobox:
+> distrobox create --name test --image ubuntu:latest
+This will pull the latest container image of ubuntu, which is generally a safe thing to do, as it is an extremely popular, well-maintained Linux distribution (distro!)
+
+> distrobox enter test
+> uname -a
+
+This should say "Linux" followed by a bunch of system/user specific information. If you get this far, you're good to go. Now run
+
+> exit
+
+To return to your normal shell.
 
 ## First Run
 Once podman and distrobox are installed,
