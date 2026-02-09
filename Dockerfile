@@ -6,6 +6,7 @@ COPY --chmod=777 . /app/medlands/
 
 # install system-level dependencies
 RUN dnf -y update && \
+    dnf -y install xauth && \
     dnf -y install wget && \
     dnf -y install git && \
     dnf clean all
@@ -27,7 +28,8 @@ RUN conda init
 # TODO - this step will always fail for architectural reasons.
 #RUN conda activate runtime
 
-
+# Export the environment variable for MacOS X-11 forwarding
+ENV DISPLAY=host.docker.internal:0
 
 # MedLands Setup Steps
 # TODO
