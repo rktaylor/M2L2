@@ -20,3 +20,6 @@ On Ubuntu:
 > sudo apt install distrobox
 
 On MacOS: TODO
+
+## First Run
+TODO, steps in order

@@ -6,21 +6,31 @@ COPY --chmod=777 . /app/medlands/
 
 # install system-level dependencies
 RUN dnf -y update && \
-    dnf -y install python3 && \
-    dnf install -y java-25-openjdk-devel && \
+    dnf -y install wget && \
+    dnf -y install git && \
     dnf clean all
 
-# install GRASS 6.4 and its dependencies
-# TODO once determine adequate source for SPECIFIC grass
+# Install Conda for managing Python and Java dependencies
+ENV CONDA_DIR /opt/conda
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda
+ENV PATH=$CONDA_DIR/bin:$PATH
+
+# Agree to Conda TOS
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
+# Run Conda installation
+RUN conda env create --file /app/medlands/environment.yml
+RUN conda init
+
+# TODO - this step will always fail for architectural reasons.
+#RUN conda activate runtime
+
+
 
 # MedLands Setup Steps
 # TODO
-
-# Verify installed versions
-CMD ["sh", "-c", "python3 --version && java --version"]
-
-# TODO don't hard-code a user path
-ENV PATH="/home/moss/asu:/usr/bin:$PATH"
 
 # TODO update with appropriate entry point. gradio.app entry point?
 # CMD ["java", "-jar", "/app/medlands/code/MML/MMLv1.jar"]
