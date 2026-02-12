@@ -1,4 +1,4 @@
-name: runtime
+name: medlands
 channels:
   - conda-forge
   - defaults
