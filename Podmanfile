@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/devcontainers/anaconda:3
+
+COPY --chmod=777 . /app/medlands/
+COPY environment.yml /app/medlands/environment.yml
+RUN conda env create -f /app/medlands/environment.yml
+
+CMD ["python", "/app/medlands/webui.py"]

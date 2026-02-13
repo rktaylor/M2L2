@@ -11,8 +11,13 @@ COPY --chmod=777 . /app/medlands/
 # install system-level dependencies
 RUN dnf -y update && \
     dnf -y install wget && \
+    dnf -y install which && \
     dnf -y install git && \
     dnf clean all
+
+
+# the right installer for apple sillycon is 
+#curl -o ~/miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh"
 
 # Install Conda for managing Python and Java dependencies
 ENV CONDA_DIR /opt/conda
