@@ -2,7 +2,7 @@
 FROM registry.fedoraproject.org/fedora:latest
 
 # multi platform support
-ARG TARGETARCH=amd64
+ARG TARGETARCH=arm64
 
 # copy repository, data and dependencies into container
 COPY --chmod=777 . /app/medlands/
