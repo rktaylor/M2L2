@@ -22,7 +22,7 @@ ENV CONDA_DIR /opt/conda
 RUN if [ "$TARGETARCH" = "amd64" ]; then \
       curl -o ~/miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" ; \
     elif [ "$TARGETARCH" = "arm64" ]; then \
-      ln -s /sbin/md5 /usr/bin/md5   
+      ln -s /sbin/md5 /usr/bin/md5; \
       curl -o ~/miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh"; \
     else \
       echo "Unsupported architecture" && exit 1; \
