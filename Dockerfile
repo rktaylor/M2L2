@@ -1,6 +1,9 @@
 # syntax=docker/dockerfile:1
 FROM registry.fedoraproject.org/fedora:latest
 
+# multi platform support
+ARG TARGETARCH=amd64
+
 # copy repository, data and dependencies into container
 COPY --chmod=777 . /app/medlands/
 
@@ -15,7 +18,15 @@ ENV CONDA_DIR /opt/conda
 #RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
 #    /bin/bash ~/miniconda.sh -b -p /opt/conda
 
-RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN if [ "$TARGETARCH" = "amd64" ]; then \
+      curl -o ~/miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh" ; \
+    elif [ "$TARGETARCH" = "arm64" ]; then \
+      curl -o ~/miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh"; \
+    else \
+      echo "Unsupported architecture" && exit 1; \
+    fi
+
+#RUN curl -o ~/miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 RUN /bin/bash ~/miniconda.sh -b -p /opt/conda
 ENV PATH=$CONDA_DIR/bin:$PATH
 
