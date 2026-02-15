@@ -1,0 +1,4 @@
+- Remove DistroBox section as the legacy UI no longer needed
+- Switch MacOS docs to just use the `brew install --cask podman-desktop`
+- Build a different version of the container image for Apple Silicon. 
+- Don't need 7.4 and Fedora as hard requirements.
