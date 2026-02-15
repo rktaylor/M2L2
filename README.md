@@ -73,6 +73,11 @@ You will see a lot of output text, and it will take time, even on new systems.
 
 Like before, `--name` names the *distrobox* runtime, and `--image` specifies what *container image* to build that runtime from. 
 
+### TODO - NOTE
+I managed to get the GUI to launch with XQuartz on MacOS but not with Distrobox. Getting Distrobox to build it, and then using 
+> podman exec -it ${RUNNING_CONTAINER_NAME} /bin/bash
+I then called Grass and invoked the Gui and it worked.
+
 3. Launch program
 > distrobox enter db
 
