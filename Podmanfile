@@ -1,6 +1,7 @@
-FROM mcr.microsoft.com/devcontainers/anaconda:3
+FROM mambaorg/micromamba:2.5.0
 
-COPY --chmod=777 . /app/medlands/
+COPY --chmod=777 ./medlands/ /medlands/app
+COPY ./data/ /medlands/data
 COPY environment.yml /app/medlands/environment.yml
 RUN conda env create -f /app/medlands/environment.yml
 
