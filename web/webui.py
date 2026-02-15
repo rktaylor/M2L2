@@ -12,4 +12,5 @@ demo = gr.Interface(
     api_name="ping_env"
 )
 
+# launches the app
 demo.launch()
