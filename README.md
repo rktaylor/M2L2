@@ -96,3 +96,12 @@ Python dependencies and Grass are managed through Conda. To launch,
 > conda activate runtime
 
 This should change your prompt to say `(runtime)` at the beginning. Now you have access to all your required dependencies, and can begin work.
+
+# Contributing
+Please read the following before checking in new code.
+
+## Running Tests
+To run unit tests, 
+1. Ensure you're in the root directory of the repository
+2. Specify the full path of the tests to run. If testing the web components:
+> python -m unittest -v web.test.hwt_web
