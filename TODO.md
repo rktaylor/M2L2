@@ -23,3 +23,5 @@ GUI=text
 Potentially useful: https://deepwiki.com/containers/podman-compose/4.2-testing-framework
 
 https://testinfra.readthedocs.io/en/latest/backends.html
+
+https://testcontainers.com/guides/getting-started-with-testcontainers-for-python/
