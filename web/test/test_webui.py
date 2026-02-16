@@ -1,8 +1,6 @@
 import unittest
 from ..webui import hello_world
 
-print(__name__)
-
 class TestWebUi(unittest.TestCase):
     def testHelloWorld_noChange_returnsDefault(self):
         # arrange

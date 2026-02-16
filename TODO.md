@@ -21,3 +21,5 @@ MAPSET=PERMANENT
 GUI=text
 
 Potentially useful: https://deepwiki.com/containers/podman-compose/4.2-testing-framework
+
+https://testinfra.readthedocs.io/en/latest/backends.html

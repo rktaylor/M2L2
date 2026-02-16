@@ -5,3 +5,9 @@ dependencies:
   - python=3.10
   - grass
   - gradio
+  - pip
+  - pip:
+    - grass-session
+    # - pytest
+    # - pytest-testinfra
+    # - pytest-testinfra[podman]
