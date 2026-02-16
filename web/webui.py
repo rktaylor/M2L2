@@ -13,4 +13,6 @@ demo = gr.Interface(
 )
 
 # launches the app
-demo.launch()
+if __name__ == "__main__":
+    demo.launch()
+    print("Server up at localhost:7860")
