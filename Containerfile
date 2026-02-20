@@ -1,11 +1,14 @@
 FROM docker.io/mambaorg/micromamba:2.5.0
 
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
 COPY --chmod=777 ./medlands/ /medlands/app
 COPY ./data/ /medlands/data
 COPY ./web/ /medlands/web
 
 # build python environment
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /tmp/environment.yml
+ENV MAMBA_EXTRACT_THREADS=1
 RUN micromamba install -y -n base -f /tmp/environment.yml && \
     micromamba clean --all --yes
 

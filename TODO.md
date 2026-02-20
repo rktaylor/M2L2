@@ -25,3 +25,18 @@ Potentially useful: https://deepwiki.com/containers/podman-compose/4.2-testing-f
 https://testinfra.readthedocs.io/en/latest/backends.html
 
 https://testcontainers.com/guides/getting-started-with-testcontainers-for-python/
+
+
+## notes from searching the exit status 255 when building locally
+1. Install Required Tools
+Ensure podman, buildah, and qemu-user-static (or qemu-user on some distros) are installed to enable cross-architecture emulation:
+
+### On RHEL/Fedora
+sudo dnf install podman buildah qemu-user-static
+
+### On Debian/Ubuntu
+sudo apt install podman buildah qemu-user-static
+
+Enable binary emulation:
+
+sudo systemctl enable --now systemd-binfmt
