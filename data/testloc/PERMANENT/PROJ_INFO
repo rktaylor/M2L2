@@ -1,0 +1,6 @@
+name: Universe Transverse Mercator
+proj: utm
+datum: wgs84
+ellps: wgs84
+zone: 30
+no_defs: defined

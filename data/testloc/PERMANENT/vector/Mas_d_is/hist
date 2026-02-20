@@ -1,0 +1,3 @@
+COMMAND: v.in.ascii input="/home/csdc-library1/GIS_Database/Penaguila_UTM30/PERMANENT/.tmp/csdclibrary1-OptiPlex-790/6054.0" output="Mas_d_is" format="point" separator="|" skip=0 x=1 y=2 z=0 cat=0
+GISDBASE: /home/csdc-library1/GIS_Database
+LOCATION: Penaguila_UTM30 MAPSET: PERMANENT USER: csdc-library1 DATE: Wed Oct  1 12:56:08 2014

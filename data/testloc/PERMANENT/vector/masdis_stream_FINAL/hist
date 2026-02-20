@@ -1,0 +1,9 @@
+COMMAND: r.to.vect -v input="streams@PERMANENT" output="stream1" type="line" column="value"
+GISDBASE: /home/mdlpd/GIS_DataBase
+LOCATION: New_penag MAPSET: PERMANENT USER: mdlpd DATE: Wed Nov 19 11:23:50 2014
+---------------------------------------------------------------------------------
+COMMAND: v.extract -t input="stream1@PERMANENT" layer="1" type="point,line,boundary,centroid,area,face" cats="180,178,174,166,164,160,158,122,118,114,112,108,8,4,2" output="masdis_stream" new=1
+GISDBASE: /home/mdlpd/GIS_DataBase
+LOCATION: New_penag MAPSET: Exp1_ARCHIVE USER: mdlpd DATE: Wed Nov 19 11:24:44 2014
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
