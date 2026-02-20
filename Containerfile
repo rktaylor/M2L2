@@ -3,6 +3,7 @@ FROM docker.io/mambaorg/micromamba:2.5.0
 COPY --chmod=777 ./medlands/ /medlands/app
 COPY ./data/ /medlands/data
 COPY ./web/ /medlands/web
+COPY ./LEGACY/run_pen.sh /medlands/run_test.sh
 
 # build python environment
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /tmp/environment.yml
