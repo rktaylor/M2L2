@@ -15,109 +15,154 @@ To that end, this fork largely consists of containerization and UI improvements,
 
 Legacy documentation can be found in [OLD_README.md](LEGACY/OLD_README.md). 
 
-# Where To Begin:
-First of all, pardon the mess. The intention is that this document will be sanitized and replace the old version entirely.
+# Table of Contents
+1. [Installation](#installation)
+2. [User Guide](#user-guide)
+3. [Contributing](#contributing)
 
-To begin with M2L2, you need to install Podman and Distrobox.
 
-## Installing Podman:
-On Ubuntu:
+
+
+# Installation
+
+First, clone the repository onto your development machine.
+
+## Platform-specific Steps
+
+Medlands is officially supported for Unix systems on Amd64-x86 chips (Intel, AMD). Support for Apple Silicon is still in development.
+
+You will need to install `podman`, a `docker` alternative. `docker` should also work, but is not officially supported. ([Why podman?](#podman-vs-docker))
+
+### Linux-x86
+
+For Debian-based (Debian, Ubuntu, Mint, Pop_OS, etc.) :
+
 > sudo apt install podman
 
-On MacOS: defer to the official documentation [here](https://podman-desktop.io/docs/installation/macos-install)
+### MacOS-x86
 
-## Installing Distrobox
-On Ubuntu:
-> sudo apt install distrobox
+Ensure you have [homebrew installed](https://brew.sh/).
 
-On MacOS:
-This is technically not supported, and made possible only through community effort. Proceed with caution.
+> brew install podman
 
->podman machine init
->podman machine start
+### MacOS-arm64 (M1 and Later)
 
-This will prepare podman as a runtime.
+[Buy something better](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadp/thinkpad-p14s-gen-6-14-inch-amd-mobile-workstation/21qlcto1wwus2).
 
-The installer script `mac_install.sh` was pulled [from this github with no license file](https://gist.github.com/gianlucamazza/f9b57d6796a97981908f7c2bbda706fc) as a safety measure. The code within has been read by a human and probably isn't malware.
+(NB: the above is humorous and will be replaced with official guidance once a solution is found. The author does recommend that model of computer, however.)
 
-(To be certain something isn't malware, read it yourself.)
-(Even then, there's always something in the stack we're putting inside our trust boundary for our threat models. Unless we build the computer ourself from scratch, we can never be completely certain.)
+## Initialize Podman
 
-To run it:
-> bash mac_installer.sh
+The following is platform-independent:
 
-To test your distrobox:
-> distrobox create --name test --image ubuntu:latest
-This will pull the latest container image of ubuntu, which is generally a safe thing to do, as it is an extremely popular, well-maintained Linux distribution (distro!)
+> podman machine init
 
-> distrobox enter test
-> uname -a
+This downloads required virtualization software and configures the container host.
 
-This should say "Linux" followed by a bunch of system/user specific information. If you get this far, you're good to go. Now run
+> podman machine start
 
-> exit
+At this point, you should be good to go. Optionally, you may test:
 
-To return to your normal shell.
+> podman run --rm hello-world
 
-### Additional Mac Requirements
-For GUIs, you'll need to install and configure xquartz for X11 forwarding.
+This is a lightweight image meant to test that Podman is operating correctly. If it works, it should output this ascii art:
 
-> brew install --cask xquartz
+```
+!... Hello Podman World ...!
 
-(TODO - complete later)
+         .--"--.           
+       / -     - \         
+      / (O)   (O) \        
+   ~~~| -=(,Y,)=- |         
+    .---. /`  \   |~~      
+ ~/  o  o \~~~~.----. ~~   
+  | =(X)= |~  / (O (O) \   
+   ~~~~~~~  ~| =(Y_)=-  |   
+  ~~~~    ~~~|   U      |~~ 
+```
 
-## First Run
-Once podman and distrobox are installed,
+## Native Filesystems and GUI (Optional)
 
-1. Build the container image:
-> podman build -f Dockerfile -t medpod:1
+TODO - Revamped instructions for Distrobox.
 
-This will trigger a local container image build. (If a version of this container is hosted in a registry, you may pull it instead.)
-The `f` flag points podman to the configuration to build, and `t` tells it what to name the resulting container.
+# User Guide
 
-The number after the `:` is the tag, and is used to version images. You can vary the name and tag however you please -- they are organizational tools for keeping your workspace ordered.
+To get started with Medlands...
 
-You will see a lot of output text, and it will take time, even on new systems.
+## Deploy Container
 
-2. Build the distrobox
-> distrobox create --name db --image medpod:1 
+First, you need to build the container image *here*. From the root directory of this repository:
 
-Like before, `--name` names the *distrobox* runtime, and `--image` specifies what *container image* to build that runtime from. 
+> podman build --format docker --platform linux/amd64,linux/arm64 --manifest medlands .
 
-### TODO - NOTE
-I managed to get the GUI to launch with XQuartz on MacOS but not with Distrobox. Getting Distrobox to build it, and then using 
-> podman exec -it ${RUNNING_CONTAINER_NAME} /bin/bash
-I then called Grass and invoked the Gui and it worked.
+(TODO: The above is currently failing for arm64).
 
-3. Launch program
-> distrobox enter db
+Once built, you can either interact with Medlands through the WebUI or the Terminal/Shell.
 
-This step requires the name of the distrobox runtime, NOT the container image. This will appear to do nothing, loading a new prompt for your shell. The advantage of distrobox is that it makes containers run in such a way that they *appear* to be native apps.
+To *launch* the container (start the program):
 
-To make sure you're actually "in" the container:
+## Run Medlands from the CLI
 
-> ls /app/
+> podman run -it medlands /bin/bash
 
-This should show a folder called `medlands`. If so, you're in the container! (This path won't exist in a shell outside the container, unless you create it, which you shouldn't need to.)
+This will drop you into a running container. You'll notice your username and hostname in your terminal have changed. To leave, `exit`. 
 
-4. Use Conda to Launch
-Python dependencies and Grass are managed through Conda. To launch,
+(TODO: we're still standardizing input formats for the legacy code)
 
-> bash
-> conda activate runtime
+### Execute Tests (Optional)
 
-This should change your prompt to say `(runtime)` at the beginning. Now you have access to all your required dependencies, and can begin work.
+From within the container shell:
+
+> python -m unittest discover
+
+Optionally, you can add `-v`, `-vv`, or `-vvv` for verbose, very verbose, or VERY VERY VERBOSE debugging outputs.
+
+We recommend running tests on initial deployment and after a code-change. Otherwise, you may ignore them.
+
+## Run Medlands from the WebUI
+
+> podman run -d -p 7860:7860 medlands
+
+This will launch the web service, which you can reach [localhost](localhost:7860).
+
+(TODO: update with execution steps once web ui done.)
+
+## Run Medlands from GRASS
+
+(TODO: requires X11 forwarding in the optional Native filesystem step above.)
 
 # Contributing
-Please read the following before checking in new code.
 
-## Running Tests
-To run unit tests, 
-1. Ensure you're in the root directory of the repository
-2. Specify the full path of the tests to run. If testing the web components:
-> python -m unittest -v web.test.hwt_web
+Contributions are more than welcome! We ask that you try to follow these conventions:
+
+1. Unit Tests for all changes in `web/` are mandatory.
+2. Unit Tests should be named with the pattern `TestedFunctionality_Condition_Expectation`. See examples in code.
+3. Unit Test logic should be sorted into clearly-labeled `arrange`, `act`, and `assert` steps.
+4. All pull requests should include proof of a successful podman build on both Amd64-x86 and Arm64 architectures.
+5. Campsite Rule: try to leave things a little better than you found them, but at the very least, pack-in-pack-out. 
+
+For ease of maintainability, we would prefer if code contributions are made only in Python, except where Java is required to interface with GRASS or where C# is required to interface with Landis-II. 
+
+The choice of `gradio.app` for the web UI front-end was intentional: python fluency is much easier to expect of science contributors than javascript/html/css fluency is. 
+
+# Credits
+
+This fork of the MedLands project is being maintained by Sean Bergin and Roy Taylor.
+
+MML-Lite was developed by Isaac Ullah and Michael Barton.
+
+(TODO) Maintainer list for MMLv1 is missing on Github, likely because of how the repository was initialized. A list of contributors can be derived from publications.
+
+# Appendices
+
+## Podman vs Docker
+
+Podman is more secure as it does not require a daemon or root-level access to run. It also seemlessly integrates with Enterprise Linux, making scaled-up deployments effortless.
+
+Podman is also more permissive in its open-source licensing, as the entire stack is licensed under Apache 2.0, whereas only the Docker *Engine* is. Podman is also aligned with the Open Containers Initiative, meaning its *standards* are community-oriented.
+
+(We have made a similar choice in prioritizing "more community, less proprietary" technology in selecting Mamba instead of Conda as the Python Environment Manager.)
+
+They are both containerization architectures, and for most users the difference is semantic. 
 
 
-# Platform Specific Installation Instructions
-
-Apple Arm64: just link to an Amazon page selling a different mac.
