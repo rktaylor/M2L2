@@ -165,4 +165,14 @@ Podman is also more permissive in its open-source licensing, as the entire stack
 
 They are both containerization architectures, and for most users the difference is semantic. 
 
+## On Licenses
 
+We have elected to upgrade the license for this future revision of Medlands to the Affero GPL 3 as (a) it closes the "SaaS loophole" from prior GPL revisions and (b) it is a widely-used copyleft license.
+
+Broadly speaking -- and at risk of seriously over-generalizing -- the open source licenses fall on a spectrum, with A-GPL on one side and MIT on the other. Both provide software that is *gratis*, which means "free of charge," but they differ in how *libre* they are, which means "free to use as you'd like."
+
+MIT, meant for wide adoption, is extremely permissive. MIT-licensed open source projects end up in proprietary software all the time, and that is its intended purpose.
+
+GPL, as a copyleft license, is less *libre*. GPL-licensed software can be reused in commercial applications, but all derivative software must also be GPL licensed. This heredity is what we mean by "copyleft." Furthermore, that license must be explicitly stated, and modified versions of source code under GPL license must be made freely accessible. 
+
+We believe this is most in keeping with the scientific spirit.
