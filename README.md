@@ -1,6 +1,10 @@
 # What is Medlands?
 The Medlands Laboratory is an ensemble of disparate model-parts for understanding how landscapes evolve through feedback loops with human occupation/land-use. It was originally written in a mixture of Java and Python, with heavy dependences on GRASS. Medlands Lite was a fork of this project that rewrote the ABM in Python and modernized some dependencies.
 
+The upstream repository can be found [here](https://github.com/comses/MML-Lite), and it is our intention to make pull requests into that repository once this fork is working.
+
+The original MedLands Laboratory can be found [here](https://github.com/comses/MMLv1), or on the [COMSES Website](https://www.comses.net/codebases/4609/releases/1.1.0/). If you are interested in learning more about Medlands, ["Experimental Socioecology"... by Barton et al.](http://www.sciencedirect.com/science/article/pii/S2213305415300278) is a fantastic place to start.
+
 # What is M2L2? 
 A fork of a fork, the purpose of which is to (a) ensure dependency closure, (b) improve onboarding time, and (c) prepare the model for future extensions. It does so with containers.
 
@@ -105,3 +109,5 @@ To run unit tests,
 1. Ensure you're in the root directory of the repository
 2. Specify the full path of the tests to run. If testing the web components:
 > python -m unittest -v web.test.hwt_web
+
+
