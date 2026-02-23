@@ -6,6 +6,7 @@ dependencies:
   - grass
   - gradio
   - pip
+  - vim
   - pip:
     - grass-session
     # - pytest
