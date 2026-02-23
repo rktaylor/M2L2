@@ -1,12 +1,19 @@
 # What is Medlands?
 The Medlands Laboratory is an ensemble of disparate model-parts for understanding how landscapes evolve through feedback loops with human occupation/land-use. It was originally written in a mixture of Java and Python, with heavy dependences on GRASS. Medlands Lite was a fork of this project that rewrote the ABM in Python and modernized some dependencies.
 
-The upstream repository can be found [here](https://github.com/comses/MML-Lite), and it is our intention to make pull requests into that repository once this fork is working.
+This repository is a fork of the Medlands Lite codebase. Our objectives are:
+1. Ensure dependency closure 
+2. Improve onboarding time
+3. Prepare the codebase for new development
 
-The original MedLands Laboratory can be found [here](https://github.com/comses/MMLv1), or on the [COMSES Website](https://www.comses.net/codebases/4609/releases/1.1.0/). If you are interested in learning more about Medlands, ["Experimental Socioecology"... by Barton et al.](http://www.sciencedirect.com/science/article/pii/S2213305415300278) is a fantastic place to start.
+To that end, this fork largely consists of containerization and UI improvements, and it is our intention to make pull requests into that repository once those goals are functionally complete.
 
-# What is M2L2? 
-A fork of a fork, the purpose of which is to (a) ensure dependency closure, (b) improve onboarding time, and (c) prepare the model for future extensions. It does so with containers.
+## Learn More about Medlands...
+- [Upstream MML-Lite Repository](https://github.com/comses/MML-Lite) of which this is a fork.
+- [Original Medlands V1 (with Java)](https://github.com/comses/MMLv1), also found on the [COMSES Website](https://www.comses.net/codebases/4609/releases/1.1.0/). 
+- To read more about the Socio-Ecological Systems Science behind MedLands, ["Experimental Socioecology..." by Barton et al.](http://www.sciencedirect.com/science/article/pii/S2213305415300278) is a fantastic place to start.
+
+Legacy documentation can be found in [OLD_README.md](LEGACY/OLD_README.md). 
 
 # Where To Begin:
 First of all, pardon the mess. The intention is that this document will be sanitized and replace the old version entirely.
@@ -111,3 +118,6 @@ To run unit tests,
 > python -m unittest -v web.test.hwt_web
 
 
+# Platform Specific Installation Instructions
+
+Apple Arm64: just link to an Amazon page selling a different mac.
