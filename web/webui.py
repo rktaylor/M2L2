@@ -1,3 +1,11 @@
+####################################################
+#
+# This project depends on gradio.app for the web UI.
+# Read about it here:
+# https://www.gradio.app/guides/quickstart
+#
+####################################################
+
 import gradio as gr
 import os
 
