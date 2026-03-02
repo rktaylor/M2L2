@@ -1,0 +1,1 @@
+TODO - explain how podman works, how it differs from docker, why it was chosen, and what the commands do.
