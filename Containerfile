@@ -1,6 +1,6 @@
 FROM docker.io/mambaorg/micromamba:2.5.0
 
-COPY --chmod=777 ./medlands/ /medlands/app
+COPY --chmod=777 ./medlands/ /medlands/medlands
 COPY ./data/ /medlands/data
 COPY ./web/ /medlands/web
 

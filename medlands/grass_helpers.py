@@ -1,5 +1,9 @@
 from grass_session import Session
 
+# these are the default paths for a conda installation
+DEFAULT_GISDB = "/opt/conda/grass84"
+DEFAULT_LOCATION = "demolocation"
+
 class GrassController:
     """
     This is a lightweight wrapper around Grass GIS Python.
@@ -24,6 +28,10 @@ class GrassController:
         # set in the line above and managed in the Session object.
         import grass.script as grass
         self.grass_client = grass
+
+    @classmethod
+    def default(cls):
+        return cls(db=DEFAULT_GISDB, loc=DEFAULT_LOCATION)
 
     def __del__(self):
         """

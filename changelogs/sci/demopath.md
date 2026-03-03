@@ -7,6 +7,10 @@
 
 ## Utility Updates
 - [ ] Starter module for web ui based invocation (e.g., have all the correct parameters invoke a dummy script. Anything further than that should  be in a dev/ branch)
+- Parse the runtime arguments
+- Pass them in to a Python function that initializes a GrassHelper
+- Calls the GrassHelper to execute the job
+- Demo path here: just get the web UI to echo something via Grass Message.
 
 
 # Future-scoped Work
