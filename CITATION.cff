@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "The following citation information is ONLY for this fork of the Medlands project. Please refer to the COMSES entry below."
+authors:
+- family-names: "Taylor"
+  given-names: "Roy"
+  orcid: "https://orcid.org/0009-0000-7080-2023"
+- family-names: "Bergin"
+  given-names: "Sean"
+  orcid: "https://orcid.org/0000-0001-9576-7914"
+title: "Medlands-Lite Containerized"
+version: 0.1.0
+doi: 10.5281/zenodo.18861376
+date-released: 4 March 2026
+url: "https://www.comses.net/codebases/4609/releases/1.1.0/"
+
+# https://zenodo.org/records/18861377
