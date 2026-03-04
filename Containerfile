@@ -11,6 +11,8 @@ RUN micromamba install -y -n base -f /tmp/environment.yml && \
 # execute unit tests
 #CMD ["python", "-m", "unittest", "discover", "-vv"]
 
+WORKDIR /app
+
 # run front end
 EXPOSE 7860
 ENV GRADIO_SERVER_NAME="0.0.0.0"
