@@ -81,45 +81,29 @@ This is a lightweight image meant to test that Podman is operating correctly. If
   ~~~~    ~~~|   U      |~~ 
 ```
 
-## Native Filesystems and GUI (Optional)
-
-TODO - Revamped instructions for Distrobox.
-
 # User Guide
 
 To get started with Medlands...
 
-## Deploy Container
+## Running with Containers
+
+Containerization is the supported path for running Medlands, as it standardizes the dependencies in the runtime environment. You may choose to install it "locally" without containerization instead, though this is not officially supported.
+
+To begin:
 
 First, you need to build the container image *here*. From the root directory of this repository:
 
-> podman build --format docker --platform linux/amd64,linux/arm64 --manifest medlands .
+> podman build --format docker --platform linux/amd64 --manifest medlands .
 
-(TODO: The above is currently failing for arm64).
+**If building on MacOS** and an error occurs, try using Docker:
+
+> docker buildx build --platform linux/amd64 -t medlands -f Containerfile .
 
 Once built, you can either interact with Medlands through the WebUI or the Terminal/Shell.
 
 To *launch* the container (start the program):
 
-## Run Medlands from the CLI
-
-> podman run -it medlands /bin/bash
-
-This will drop you into a running container. You'll notice your username and hostname in your terminal have changed. To leave, `exit`. 
-
-(TODO: we're still standardizing input formats for the legacy code)
-
-### Execute Tests (Optional)
-
-From within the container shell:
-
-> python -m unittest discover
-
-Optionally, you can add `-v`, `-vv`, or `-vvv` for verbose, very verbose, or VERY VERY VERBOSE debugging outputs.
-
-We recommend running tests on initial deployment and after a code-change. Otherwise, you may ignore them.
-
-## Run Medlands from the WebUI
+### Run Medlands from the WebUI
 
 > podman run -d -p 7860:7860 medlands
 
@@ -127,12 +111,46 @@ This will launch the web service, which you can reach [localhost](localhost:7860
 
 ![Web UI subject to change](image_weblandingv1.png)
 
-From this web UI, you can interact directly with the Grass engine via the Medlands GrassController python application. Using the example command in the image above, you should see the same output.
+From this web UI, you can interact directly with the Grass engine via the Medlands GrassController python application. Using the example command in the image above, you should see the same output. If you do, congratulations! That means the app is functioning as intended.
+
+### Run Medlands from the CLI
+
+> podman run -it medlands /bin/bash
+
+This will drop you into a running container. You'll notice your username and hostname in your terminal have changed. To leave, `exit`. 
+
+To use Medlands, 
+
+> cd /app
+
+And then invoke the Grass GIS front-end commands.
+
+(TODO: we're still standardizing input formats for the legacy code)
+
+### Execute Tests (Optional)
+
+From within the container shell:
+
+> cd /app
+> python -m unittest discover
+
+Optionally, you can add `-v`, `-vv`, or `-vvv` for verbose, very verbose, or VERY VERY VERBOSE debugging outputs.
+
+We recommend running tests on initial deployment and after a code-change. Otherwise, you may ignore them.
 
 
-## Run Medlands from GRASS
+### Run Medlands from GRASS GUI
 
 (TODO: requires X11 forwarding in the optional Native filesystem step above.)
+
+## (Advanced, Unsupported) Install Grass Locally
+
+You must have micromamba, mamba, or conda installed. Then, from this directory:
+
+> conda env create -f environment.yml -n medlands
+> conda activate medlands
+
+After this point, the dependencies required for executing Grass and the Medlands scripts will be installed.
 
 # Contributing
 
