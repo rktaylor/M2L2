@@ -8,7 +8,7 @@
 
 import gradio as gr
 import os
-from ..medlands import GrassController
+from ..grass_helpers import GrassController
 
 # TODO, multiple pages
 
