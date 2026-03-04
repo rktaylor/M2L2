@@ -1,0 +1,12 @@
+{
+  "title": "Medlands-Lite Containerized",
+  "creators": [
+    {
+      "name": "Roy Taylor",
+      "orcid": "0009-0000-7080-2023"
+    }
+  ],
+  "description": "A prototyped containerized iteration of Medlands.",
+  "license": "A-GPL",
+  "version": "3+"
+}   
