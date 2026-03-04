@@ -8,6 +8,7 @@
 
 import gradio as gr
 import os
+from ..grass_helpers import GrassController
 
 # TODO, multiple pages
 
@@ -20,6 +21,18 @@ def hello_world():
     env_variable_test = os.getenv("GRADIOVAR", "...world!")
     return "Hello {}".format(env_variable_test)
 
+def run_grass(command, input_flags):
+    grass = GrassController.default()
+    client = grass.grass_client
+    return client.read_command(command, flags=input_flags)
+
+demo2 = gr.Interface(
+    fn=run_grass,
+    inputs=["text", "text"],
+    outputs=["text"],
+    api_name="grass.run"
+)
+
 demo = gr.Interface(
     fn=hello_world,
     inputs=[],
@@ -29,5 +42,5 @@ demo = gr.Interface(
 
 # launches the app
 if __name__ == "__main__":
-    demo.launch()
+    demo2.launch()
     print("Server up at localhost:7860")

@@ -125,7 +125,10 @@ We recommend running tests on initial deployment and after a code-change. Otherw
 
 This will launch the web service, which you can reach [localhost](localhost:7860).
 
-(TODO: update with execution steps once web ui done.)
+![Web UI subject to change](image_weblandingv1.png)
+
+From this web UI, you can interact directly with the Grass engine via the Medlands GrassController python application. Using the example command in the image above, you should see the same output.
+
 
 ## Run Medlands from GRASS
 

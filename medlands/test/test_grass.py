@@ -1,10 +1,6 @@
 from grass_session import Session
-from ..grass_helpers import GrassController
+from ..grass_helpers import *
 import unittest
-
-# these are the default paths for a conda installation
-DEFAULT_GISDB = "/opt/conda/grass84"
-DEFAULT_LOCATION = "demolocation"
 
 class TestGrassInstallation(unittest.TestCase):
     """

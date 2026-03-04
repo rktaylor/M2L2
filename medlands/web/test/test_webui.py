@@ -18,6 +18,10 @@ class TestWebUi(unittest.TestCase):
         does not mutate environment state before testing --
         the middle part of the name reflects that.
         Finally, the last part defines the expected result.
+
+        Unit tests do not need arguments.
+        Any state setting required for the test to execute
+        is done in the `arrange` step.)
         """
         # arrange
         expected = "Hello ...world!"
