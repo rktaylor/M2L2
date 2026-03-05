@@ -493,7 +493,15 @@ import os
 import tempfile
 import random
 import numpy
-import grass.script as grass
+#import grass.script as grass
+from grass_helpers import GrassController
+
+grass_sesh = GrassController(
+    db=None,
+    loc=None,
+)
+
+grass = grass_sesh.grass_client
 
 #main block of code starts here
 def main():
