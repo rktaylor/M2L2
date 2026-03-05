@@ -494,11 +494,11 @@ import tempfile
 import random
 import numpy
 #import grass.script as grass
-from grass_helpers import GrassController
+from grass_helpers import *
 
 grass_sesh = GrassController(
-    db=None,
-    loc=None,
+    db=DEFAULT_GISDB,
+    loc="testloc",
 )
 
 grass = grass_sesh.grass_client

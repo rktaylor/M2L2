@@ -10,6 +10,8 @@ RUN micromamba install -y -n base -f /tmp/environment.yml && \
 
 WORKDIR /app
 
+COPY ./data/testloc/ /opt/conda/grass84/testloc
+
 # run front end
 EXPOSE 7860
 ENV GRADIO_SERVER_NAME="0.0.0.0"
