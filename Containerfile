@@ -12,6 +12,10 @@ WORKDIR /app
 
 COPY ./data/testloc/ /opt/conda/grass84/testloc
 
+ENV GISDBASE="/opt/conda/grass84"
+ENV LOCATION_NAME="testloc"
+ENV MAPSET="PERMANENT"
+
 # run front end
 EXPOSE 7860
 ENV GRADIO_SERVER_NAME="0.0.0.0"

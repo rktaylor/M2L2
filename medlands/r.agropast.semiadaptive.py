@@ -16,6 +16,7 @@
 #            This program is free software under the GNU General Public
 #            License (>=v2). Read the file COPYING that comes with GRASS
 #            for details.
+
 #
 #############################################################################
 
@@ -503,43 +504,57 @@ grass_sesh = GrassController(
 
 grass = grass_sesh.grass_client
 
+# TODO notes
+"""
+In Java version, there were numbers populated to the UI from a settings file.
+Catchments were defined by a program called r.walk (grass built-in)
+
+CLASSES OF INPUTS
+(1) Numerical parameters: number of people e.g.
+(2) Grass assets: a tag representing an abstracted group of things, like a catchment
+(3) File paths (for things like rules)
+
+Grass splits up data into multiple folders.
+
+"""
+
 #main block of code starts here
 def main():
     grass.message("Setting up Simulation........")
     #setting up Land Use variables for use later on
-    agcatch = options['agcatch']
-    nsfieldsize = options['nsfieldsize']
-    ewfieldsize = options['ewfieldsize']
-    grazecatch = options['grazecatch']
-    grazespatial = options['grazespatial']
-    grazepatchy = options['grazepatchy']
-    maxgrazeimpact = options['maxgrazeimpact']
-    manurerate = options['manurerate']
-    inlcov = options['inlcov']
-    years = int(options['years'])
-    farmval = options['farmval']
-    maxlcov = options['maxlcov']
-    prfx = options['prfx']
-    lc_rules = options['lc_rules']
-    cfact_rules = options['cfact_rules']
-    fodder_rules = options['fodder_rules']
-    infert = options['infert']
-    maxfert = options['maxfert']
-    maxwheat = options['maxwheat']
-    maxbarley = options['maxbarley']
-    mingraze = options['mingraze']
-    tenuredrop = options['tenuredrop']
-    costsurf = options['costsurf']
-    agmix = options['agmix']
-    numpeople = float(options['numpeople'])
-    agentmem = int(options['agentmem'])
-    animals = float(options['animals'])
-    agratio = 1 - float(options['a_p_ratio'])
-    pratio =  float(options['a_p_ratio'])
-    indcerreq = float(options['cerealreq'])
-    indfodreq = float(options['fodderreq'])
-    aglabor = float(options['aglabor'])
-    fieldlabor = float(options['fieldlabor'])
+    agcatch = "farm_catch_10yr_30ppl@PERMANENT" #options['agcatch'] # raster ref
+    nsfieldsize = 20.0 #options['nsfieldsize'] # numerical?
+    ewfieldsize = 50.0 #options['ewfieldsize'] # probably 
+    grazecatch = "grazecatch=graze_catch@PERMANENT" #options['grazecatch'] # rr
+    grazespatial = 1.0 #options['grazespatial'] # ?
+    grazepatchy = 1.0 #options['grazepatchy']
+    maxgrazeimpact = 1 #options['maxgrazeimpact']
+    manurerate = 1.0# options['manurerate']
+    inlcov = "init_veg@PERMANENT" #options['inlcov']
+    years = 5 # int(options['years'])
+    farmval = 5.0 #options['farmval']
+    maxlcov = 50 #options['maxlcov']
+    prfx = "30pf10sim_" #options['prfx']
+    lc_rules = "/opt/conda/grass84/testloc/rules/luse_reclass_rules.txt" #options['lc_rules']
+    cfact_rules = "/opt/conda/grass84/testloc/rules/cfactor_recode_rules.txt" #options['cfact_rules']
+    fodder_rules = "/opt/conda/grass84/testloc/rules/fodder_rules.txt" # options['fodder_rules']
+    infert = "init_fert@PERMANENT" # options['infert']
+    maxfert = "100" # options['maxfert']
+    maxwheat = 1750 # options['maxwheat']
+    maxbarley = 1750 # options['maxbarley']
+    mingraze = 2.0 #options['mingraze']
+    tenuredrop = 1.0 # options['tenuredrop']
+    costsurf = "farm_catch_10yr_30ppl_cost_surface@PERMANENT" # options['costsurf']
+    agmix = 0.5 # options['agmix']
+    numpeople = 10.0# float(options['numpeople'])
+    agentmem = 5 # int(options['agentmem'])
+    animals = 10.0 #float(options['animals'])
+    agratio = 0.5 #1 - float(options['a_p_ratio'])
+    pratio =  0.5# float(options['a_p_ratio'])
+    indcerreq = 0.9 #float(options['cerealreq'])
+    indfodreq = 0.9# float(options['fodderreq'])
+    aglabor = 0.1# float(options['aglabor'])
+    fieldlabor = 0.5# float(options['fieldlabor'])
     cereal_pers = numpeople * agratio
     fodder_anim = animals * numpeople * pratio
     cerealreq = indcerreq * cereal_pers
@@ -547,26 +562,26 @@ def main():
     totlabor = numpeople * aglabor
     maxfields = int(round(totlabor / fieldlabor))
     #these are various rates with min and max values entered in the gui that we need to parse
-    farmimpact = map(float, options['farmimpact'].split(','))
-    fertilrate = map(float, options['fertilrate'].split(','))
+    farmimpact = map(float, [3,2]) #map(float, options['farmimpact'].split(','))
+    fertilrate = map(float, [2,0.5])# map(float, options['fertilrate'].split(','))
     #Setting up Landscape Evol variables to write the r.landscape.evol command later
-    elev = options["elev"]
-    initbdrk = options["initbdrk"]
-    k = options["k"]
-    sdensity = options["sdensity"]
-    kappa = options["kappa"]
-    manningn = options["manningn"]
-    cutoff1 = options["cutoff1"]
-    cutoff2 = options["cutoff2"]
-    cutoff3 = options["cutoff3"]
-    speed = options["speed"]
-    kt = options["kt"]
-    loadexp = options["loadexp"]
-    smoothing = options["smoothing"]
+    elev = "DEM@PERMANENT" #options["elev"]
+    initbdrk = "init_bdrk@PERMANENT" #options["initbdrk"]
+    k = "0.05" #options["k"]
+    sdensity = "1218.4" # options["sdensity"]
+    kappa = 1.2  # options["kappa"]
+    manningn = "0.03" # options["manningn"]
+    cutoff1 = 1.0 # options["cutoff1"] # landscape evol things (elevation)
+    cutoff2 = 2.0 # options["cutoff2"]
+    cutoff3 = 3.0 # options["cutoff3"]
+    speed = 4.0 #options["speed"]
+    kt = 3.0 # options["kt"]
+    loadexp = 20.0 # options["loadexp"]
+    smoothing = "high" # options["smoothing"]
     #these values could be read in from a climate file, so check that, and act accordingly
     rain2 = []
     try:
-        rain1 = float(options['rain'])
+        rain1 = "30" # float(options['rain'])
         for year in range(int(years)):
             rain2.append(rain1)
     except:
@@ -584,7 +599,7 @@ def main():
             sys.exit(1)
     R2 = []
     try:
-        R1 = float(options['r'])
+        R1 = 720.0 # float(options['r'])
         for year in range(int(years)):
             R2.append(R1)
     except:
@@ -602,7 +617,7 @@ def main():
             sys.exit(1)
     storms2 = []
     try:
-        storms1 = float(options['storms'])
+        storms1 = 2.0 #float(options['storms'])
         for year in range(int(years)):
             storms2.append(storms1)
     except:
@@ -620,7 +635,7 @@ def main():
             sys.exit(1)
     stormlength2 = []
     try:
-        stormlength1 = float(options['stormlength'])
+        stormlength1 = 24.0 # float(options['stormlength'])
         for year in range(int(years)):
             stormlength2.append(stormlength1)
     except:
@@ -1115,7 +1130,15 @@ def main():
 
 #Here is where the code in "main" actually gets executed. This way of programming is neccessary for the way g.parser needs to run.
 if __name__ == "__main__":
-    options, flags = grass.parser()
+    flags = {
+        "m": True,
+        "d": True,
+        "g": True,
+        "f": True,
+        "c": True,
+        "i": True
+    }
+    #options, flags = grass.parser()
     main()
     exit(0)
 

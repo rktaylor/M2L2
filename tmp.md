@@ -1,0 +1,5 @@
+for i in `seq 1 2`; do label="30pf10sim_"$i; 
+
+r.agropast.semiadaptive.py -1 -1 numpeople=30 years=300 prfx=$label costsurf=farm_catch_10yr_30ppl_cost_surface@PERMANENT agcatch=farm_catch_10yr_30ppl@PERMANENT grazecatch=graze_catch@PERMANENT fodder_rules=/opt/conda/grass84/testloc/rules/fodder_rules.txt inlcov=init_veg@PERMANENT infert=init_fert@PERMANENT lc_rules=/opt/conda/grass84/testloc/rules/luse_reclass_rules.txt cfact_rules=/opt/conda/grass84/testloc/rules/cfactor_recode_rules.txt elev=DEM@PERMANENT initbdrk=init_bdrk@PERMANENT; done
+
+r.agropast.semiadaptive.py -1 -1 numpeople=30 years=300 prfx=$label costsurf=farm_catch_10yr_30ppl_cost_surface@PERMANENT agcatch=farm_catch_10yr_30ppl@PERMANENT grazecatch=graze_catch@PERMANENT fodder_rules=/opt/conda/grass84/testloc/rules/fodder_rules.txt inlcov=init_veg@PERMANENT infert=init_fert@PERMANENT lc_rules=/opt/conda/grass84/testloc/rules/luse_reclass_rules.txt cfact_rules=/opt/conda/grass84/testloc/rules/cfactor_recode_rules.txt elev=DEM@PERMANENT initbdrk=init_bdrk@PERMANENT

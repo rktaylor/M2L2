@@ -5,6 +5,7 @@ dependencies:
   - python=3.10
   - grass
   - gradio
+  - numpy
   - pip
   - vim
   - pip:
