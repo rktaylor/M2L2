@@ -11,6 +11,7 @@ RUN micromamba install -y -n base -f /tmp/environment.yml && \
 WORKDIR /app
 
 COPY ./data/testloc/ /opt/conda/grass84/testloc
+#RUN chown -R $MAMBA_USER:$MAMBA_USER /opt/conda/grass84/testloc
 
 ENV GISDBASE="/opt/conda/grass84"
 ENV LOCATION_NAME="testloc"
@@ -19,4 +20,6 @@ ENV MAPSET="PERMANENT"
 # run front end
 EXPOSE 7860
 ENV GRADIO_SERVER_NAME="0.0.0.0"
+
+#USER $MAMBA_USER
 CMD ["python", "-m", "medlands.web.webui"]

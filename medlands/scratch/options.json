@@ -1,0 +1,58 @@
+{
+"Parameters":
+{
+  "slopebreaks": {
+    "key": "slopebreaks",
+    "type": "string",
+    "answer": "15,0.5;45,0.15"
+  },
+  "curvebreaks": {
+    "key": "curvebreaks",
+    "type": "string",
+    "answer": "-0.015,-0.5;0.015,0.5"
+  },
+  "smoothingtype": {
+    "key": "smoothingtype",
+    "type": "string",
+    "answer": "median",
+    "options": ["average", "median", "mode", "minimum", "maximum"]
+  },
+  "elev": {
+    "key": "elev",
+    "type": "string",
+    "gisprompt": "old,cell,raster"
+  },
+  "bedrock": {
+    "key": "bedrock",
+    "type": "string",
+    "gisprompt": "old,cell,raster"
+  },
+  "soildepth": {
+    "key": "soildepth",
+    "type": "string",
+    "gisprompt": "old,cell,raster"
+  },
+  "min": {
+    "key": "min",
+    "answer": 0.0001,
+    "type": "double",
+    "description": "What are the actual (empircal) minimum soil depths in this area (in meters)? (NOTE: The smoothing operation will trim extreme values, so resulting soildepth map may not have minimum depths exactly equal to this number)"
+  },
+  "max": {
+    "key": "max",
+    "answer": 20.0,
+    "type": "double",
+    "description": "What are the actual (empircal) maximum soil depths in this area (in meters)? (NOTE: The smoothing operation will trim extreme values, so resulting soildepth map may not have maximum depths exactly equal to this number)"
+  },
+  "smoothingsize": {
+    "key": "smoothingsize",
+    "type": "integer",
+    "description": "Size (in cells) of the smoother's moving window",
+    "answer": 3
+  },
+  "GIS_FLAGS": {
+    "k": "1",
+    "s": "1"
+  }
+}
+}

@@ -1,0 +1,252 @@
+{
+    "Agent Properties": [
+        {
+            "key": "numpeople",
+            "type": "double",
+            "description": "Number of people in the village(s) (stays constant throughout the simulation)",
+            "answer": 30,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "agentmem",
+            "type": "integer",
+            "description": "Length of the \"memory\" of the agent in years. The agent will use the mean surplus/defict information from this many of the most recent previous years when making a subsistence plan for the current year.",
+            "answer": 5,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "aglabor",
+            "type": "double",
+            "description": "The amount of agricultural labor an average person of the village can do in a year (in \"person-days\")",
+            "answer": 300,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "cerealreq",
+            "type": "double",
+            "description": "Amount of cereals that would be required per person per year if cereals were the ONLY food item (Kg)",
+            "answer": 370,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "animals",
+            "type": "double",
+            "description": "Number of herd animals that would be needed per person per year if pastoral products were the ONLY food item",
+            "answer": 60,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "fodderreq",
+            "type": "double",
+            "description": "Amount of fodder required per herd animal per year (Kg)",
+            "answer": 680,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "a_p_ratio",
+            "type": "double",
+            "description": "Actual ratio of agricultural to pastoral foods in the diet (0-1, where 0 = 100% agricultural and 1 = 100% pastoral)",
+            "answer": 0.2,
+            "options": "0.0-1.0",
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "costsurf",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Map of movement costs from the center of the agricultural/grazing catchments (from r.walk or r.cost).",
+            "guisection": "Agent Properties"
+        }
+    ],
+    "Farming Options": [
+        {
+            "key": "agcatch",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Map of the largest possible agricultural catchment map (From r.catchment or r.buffer, where catchment is a single integer value, and all else is NULL)",
+            "guisection": "Farming"
+        },
+        {
+            "key": "agmix",
+            "type": "double",
+            "description": "The wheat/barley ratio (e.g., 0.0 for all wheat, 1.0 for all barley, 0.5 for an equal mix)",
+            "answer": 0.25,
+            "options": "0.0-1.0",
+            "guisection": "Farming"
+        },
+        {
+            "key": "nsfieldsize",
+            "type": "double",
+            "description": "North-South dimension of fields in map units (Large field sizes may lead to some overshoot of catchment boundaries)",
+            "answer": 20,
+            "guisection": "Farming"
+        },
+        {
+            "key": "ewfieldsize",
+            "type": "double",
+            "description": "East-West dimension of fields in map units (Large field sizes may lead to some overshoot of catchment boundaries)",
+            "answer": 50,
+            "guisection": "Farming"
+        },
+        {
+            "key": "fieldlabor",
+            "type": "double",
+            "description": "Number of person-days required to till, sow, weed, and harvest one farm field in a year.",
+            "answer": 50,
+            "guisection": "Farming"
+        },
+        {
+            "key": "farmval",
+            "type": "double",
+            "description": "The landcover value for farmed fields (Should correspond to an appropriate value from your landcover rules file.)",
+            "answer": 5,
+            "guisection": "Farming"
+        },
+        {
+            "key": "farmimpact",
+            "type": "double",
+            "description": "The mean and standard deviation of the amount to which farming a patch decreases its fertility (in percentage points of maximum fertility, entered as: \"mean,std_dev\"). Fertility impact values of indvidual farm plots will be randomly chosen from a gaussian distribution that has this mean and std_dev.",
+            "answer": [
+                3,
+                2
+            ],
+            "multiple": true,
+            "guisection": "Farming"
+        },
+        {
+            "key": "maxwheat",
+            "type": "double",
+            "description": "Maximum amount of wheat that can be grown (kg/ha)",
+            "answer": 3500,
+            "guisection": "Farming"
+        },
+        {
+            "key": "maxbarley",
+            "type": "double",
+            "description": "Maximum amount of barley that can be grown (kg/ha)",
+            "answer": 2500,
+            "guisection": "Farming"
+        },
+        {
+            "key": "tenuredrop",
+            "type": "double",
+            "description": "Threshold for dropping land out of Tenure (with flag -M). If the value is positive it is interpreted as a percentage below the yearly average yield of all farm cells. If the value is negative, it is interpreted as a percentage of the maximum yield of all farm cells. Value will always be interpreted as a proportion between 0 and 1.",
+            "answer": 0.0,
+            "options": "-1.0-1.0",
+            "guisection": "Farming"
+        }
+    ],
+    "Grazing Options": [
+        {
+            "key": "grazecatch",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Map of the largest possible grazing catchment (From r.catchment or r.buffer, where catchment is a single integer value, and all else is NULL).",
+            "guisection": "Grazing"
+        },
+        {
+            "key": "mingraze",
+            "type": "double",
+            "description": "Minimum amount of vegetation on a cell for it to be considered grazeable (in value of succession stages, matching landcover rules file)",
+            "answer": 2,
+            "guisection": "Grazing"
+        },
+        {
+            "key": "grazespatial",
+            "type": "double",
+            "description": "Spatial dependency of the grazing pattern in map units. This value determines how \"clumped\" grazing patches will be. A value close to 0 will produce a perfectly randomized grazing pattern with patch size=resolution, and larger values will produce increasingly clumped grazing patterns, with the size of the patches corresponding to the value of grazespatial (in map units).",
+            "answer": 50,
+            "guisection": "Grazing"
+        },
+        {
+            "key": "grazepatchy",
+            "type": "double",
+            "description": "Coefficient that determines the patchiness of the grazing catchemnt. Value must be non-zero, and usually will be <= 1.0. Values close to 0 will create a patchy grazing pattern, values close to 1 will create a \"smooth\" grazing pattern. Actual grazing patches will be sized to the resolution of the input landcover map.",
+            "answer": 1.0,
+            "guisection": "Grazing"
+        },
+        {
+            "key": "maxgrazeimpact",
+            "type": "integer",
+            "description": "Maximum impact of grazing in units of \"landcover.succession\". Grazing impact values of individual patches will be chosen from a gaussian distribution between 1 and this maximum value (i.e., most values will be between 1 and this max). Value must be >= 1.",
+            "answer": 3,
+            "guisection": "Grazing"
+        },
+        {
+            "key": "manurerate",
+            "type": "double",
+            "description": "Base rate that animal dung contributes to fertility increase on a grazed patch in units of percentage of maximum fertility regained per increment of grazing impact. Actual fertility regain values are thus calculated as \"manure_rate x grazing_impact\", so be aware that this variable interacts with the grazing impact settings you have chosen.",
+            "answer": 0.2,
+            "options": "0.0-100.0",
+            "guisection": "Grazing"
+        },
+        {
+            "key": "fodder_rules",
+            "type": "string",
+            "gisprompt": "string",
+            "description": "Path to foddering rules file for calculation of fodder gained by grazing",
+            "answer": "/home/mdlpd/Dropbox/Scripts_Working_Dir/rules/fodder_rules.txt",
+            "guisection": "Grazing"
+        }
+    ],
+    "Landcover Dynamics Options": [
+        {
+            "key": "fertilrate",
+            "type": "double",
+            "description": "Comma separated list of the mean and standard deviation of the natural fertility recovery rate (percentage by which soil fertility increases per year if not farmed, entered as: \"mean,stdev\".) Fertility recovery values of individual landscape patches will be randomly chosen from a gaussian distribution that has this mean and std_dev.",
+            "answer": [
+                2,
+                0.5
+            ],
+            "multiple": true,
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "inlcov",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Input landcover map (Coded according to landcover rules file below)",
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "infert",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Input fertility map (Coded according to percentage retained fertility, with 100 being full fertility)",
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "maxlcov",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Maximum value of landcover for the landscape (Can be a single numerical value or a cover map of different maximum values. Shouldn't exceed maximum value in rules file')",
+            "answer": 50,
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "maxfert",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Maximum value of fertility for the landscape (Can be a single numerical value or a cover map of different maximum values. Shouldn't exceed 100)",
+            "answer": 100,
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "lc_rules",
+            "type": "string",
+            "gisprompt": "string",
+            "description": "Path to reclass rules file for landcover map",
+            "answer": "/home/mdlpd/Dropbox/Scripts_Working_Dir/rules/luse_reclass_rules.txt",
+            "guisection": "Landcover Dynamics"
+        },
+        {
+            "key": "cfact_rules",
+            "type": "string",
+            "gisprompt": "string",
+            "description": "Path to recode rules file for c-factor map",
+            "answer": "/home/mdlpd/Dropbox/Scripts_Working_Dir/rules/cfactor_recode_rules.txt",
+            "guisection": "Landcover Dynamics"
+        }
+    ],
+    "Landscape Evolution Options": []
+}

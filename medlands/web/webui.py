@@ -8,7 +8,10 @@
 
 import gradio as gr
 import os
+import json
+import re
 from ..grass_helpers import GrassController
+from ..iamatest import 
 
 # TODO, multiple pages
 
@@ -40,7 +43,60 @@ demo = gr.Interface(
     api_name="ping_env"
 )
 
+# loading config values
+def create_component(key, field):
+    """Create Gradio input component based on type and metadata."""
+    field_type = field.get("type", "string")
+    default = field.get("answer")
+    description = field.get("description", "")
+
+    if field_type == "integer":
+        return gr.Number(label=key, value=default, precision=0, info=description)
+    elif field_type == "double":
+        return gr.Number(label=key, value=default, precision=3, info=description)
+    elif field_type == "string":
+        return gr.Textbox(label=key, value=default, info=description)
+    elif isinstance(default, list):  # e.g., "3,2" parsed as list
+        return gr.Textbox(label=key, value=",".join(map(str, default)), info=description)
+    else:
+        return gr.Textbox(label=key, value=default, info=description)
+
+def load_config_and_build_ui(config_path="output_config.json"):
+    with open(config_path, "r") as f:
+        config = json.load(f)
+
+    with gr.Blocks() as demo:
+        gr.Markdown("## Configuration Editor")
+        state = gr.State(config)
+        for section_name, options in config.items():
+            with gr.Accordion(section_name, open=False):
+                for opt in options:
+                    comp = create_component(opt["key"], opt)
+                    # Store updated values back into JSON structure
+                    comp.change(
+                        fn=lambda val, key=opt["key"], sec=section_name: update_config(state, sec, key, val),
+                        inputs=[comp],
+                        outputs=[]
+                    )
+        return demo
+
+def update_config(state, section, key, value):
+    # Update the internal state (can be extended to save to file)
+    config = state["value"]
+    for opt in config[section]:
+        if opt["key"] == key:
+            opt["answer"] = value
+    return config
+
+# Build and launch
+try:
+    demo_opts = load_config_and_build_ui("/app/medlands/scratch/options.json")
+except:
+    demo_opts = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
+#demo.launch()
+
 # launches the app
 if __name__ == "__main__":
-    demo2.launch()
+    #demo2.launch()
+    demo_opts.launch()
     print("Server up at localhost:7860")

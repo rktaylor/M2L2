@@ -1,0 +1,66 @@
+{
+    "Agent Properties": [
+        {
+            "key": "numpeople",
+            "type": "double",
+            "description": "Number of people in the village(s) (stays constant throughout the simulation)",
+            "answer": 30,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "agentmem",
+            "type": "integer",
+            "description": "Length of the \"memory\" of the agent in years. The agent will use the mean surplus/defict information from this many of the most recent previous years when making a subsistence plan for the current year.",
+            "answer": 5,
+            "guisection": "Agent Properties"
+        },
+        {
+            "key": "aglabor",
+            "type": "double",
+            "description": "The amount of agricultural labor an average person of the village can do in a year (in \"person-days\")",
+            "answer": 300,
+            "guisection": "Agent Properties"
+        }
+    ],
+    "Farming Options": [
+        {
+            "key": "agcatch",
+            "type": "string",
+            "gisprompt": "old,cell,raster",
+            "description": "Map of the largest possible agricultural catchment map (From r.catchment or r.buffer, where catchment is a single integer value, and all else is NULL)",
+            "guisection": "Farming"
+        },
+        {
+            "key": "ewfieldsize",
+            "type": "double",
+            "description": "East-West dimension of fields in map units (Large field sizes may lead to some overshoot of catchment boundaries)",
+            "answer": 50,
+            "guisection": "Farming"
+        },
+        {
+            "key": "fieldlabor",
+            "type": "double",
+            "description": "Number of person-days required to till, sow, weed, and harvest one farm field in a year.",
+            "answer": 50,
+            "guisection": "Farming"
+        },
+        {
+            "key": "farmval",
+            "type": "double",
+            "description": "The landcover value for farmed fields (Should correspond to an appropriate value from your landcover rules file.)",
+            "answer": 5,
+            "guisection": "Farming"
+        },
+        {
+            "key": "farmimpact",
+            "type": "double",
+            "description": "The mean and standard deviation of the amount to which farming a patch decreases its fertility (in percentage points of maximum fertility, entered as: \"mean,std_dev\"). Fertility impact values of indvidual farm plots will be randomly chosen from a gaussian distribution that has this mean and std_dev.",
+            "answer": [
+                3,
+                2
+            ],
+            "multiple": true,
+            "guisection": "Farming"
+        }
+    ]
+}

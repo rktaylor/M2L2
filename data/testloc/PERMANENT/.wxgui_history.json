@@ -1,0 +1,600 @@
+[
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:31:21.575682",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=init_bdrk@PERMANENT soildepth=init_soildepth@PERMANENT min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T13:32:21.789701",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed",
+      "runtime": 1
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:34:17.572190",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:34:42.236295",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "pwd",
+    "command_info": {
+      "timestamp": "2026-04-03T13:36:07.520581",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "cd medlands",
+    "command_info": {
+      "timestamp": "2026-04-03T13:36:26.345144",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "ls",
+    "command_info": {
+      "timestamp": "2026-04-03T13:36:32.086520",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:36:51.440852",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:38:07.091172",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:41:04.878816",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "running"
+    }
+  },
+  {
+    "command": "/home/moss/miniconda3/envs/medlands/grass84/scripts/r.agropast.semiadaptive.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:41:41.635127",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:51:09.593048",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bedrock2 soildepth=soil2 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T13:53:26.674720",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:54:55.110435",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bedrock23 soildepth=soil23 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T13:55:14.603058",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed",
+      "runtime": 1
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:57:58.742662",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:58:21.708652",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bedrock24 soildepth=soil24 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T13:58:39.761910",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T13:59:18.435351",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bdrock1 soildepth=soild1 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T13:59:32.907188",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed",
+      "runtime": 1
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T14:03:33.646654",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T14:03:58.757217",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=BD1 soildepth=SL1 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T14:04:11.961321",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T14:04:30.283053",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=BD2 soildepth=SL2 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T14:04:42.376329",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-03T14:05:13.610647",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=BD4 soildepth=SL4 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-03T14:05:22.169625",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success",
+      "runtime": 1
+    }
+  }
+]
