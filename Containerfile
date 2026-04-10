@@ -22,4 +22,4 @@ EXPOSE 7860
 ENV GRADIO_SERVER_NAME="0.0.0.0"
 
 #USER $MAMBA_USER
-CMD ["python", "-m", "medlands.web.webui"]
+CMD ["python", "-m", "medlands.web.new_webui"]
