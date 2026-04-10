@@ -11,7 +11,7 @@ import os
 import json
 import re
 from ..grass_helpers import GrassController
-from ..iamatest import 
+from ..iamatest import main 
 
 # TODO, multiple pages
 
@@ -78,7 +78,13 @@ def load_config_and_build_ui(config_path="output_config.json"):
                         inputs=[comp],
                         outputs=[]
                     )
+        run_btn = gr.Button("Run", variant="primary")
+        output = gr.Textbox(label="Status")
+        run_btn.click(fn=run_config, inputs=state, outputs=output)
         return demo
+
+def run_config(state):
+    return "Test"
 
 def update_config(state, section, key, value):
     # Update the internal state (can be extended to save to file)
@@ -95,8 +101,33 @@ except:
     demo_opts = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
 #demo.launch()
 
+with gr.Blocks(title="Medlands Control Plane") as app:
+    
+    # home page
+    with gr.Row():
+        gr.Markdown("Landing page")
+
+    # TODO: This should configure the experiment...
+    with gr.Row():
+        output=gr.Textbook(label="Grass Test Output")
+        test_btn = gr.Button("Test Grass")
+        test_btn.click(
+            fn=run_grass,
+            inputs=["text", "text"],
+            outputs=["text"]
+        )
+
+    with app.route("Configure", "/config"):
+        gr.Markdown("# Configuration")
+        try:
+            config_demo = load_config_and_build_ui("/app/medlands/scratch/options.json")
+            config_demo.render()
+        except:
+            fallback = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
+            fallback.render()
+
 # launches the app
 if __name__ == "__main__":
     #demo2.launch()
-    demo_opts.launch()
+    app.launch()
     print("Server up at localhost:7860")

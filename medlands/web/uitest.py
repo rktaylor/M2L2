@@ -1,6 +1,9 @@
 import gradio as gr
 import os
 import json
+import re
+from ..grass_helpers import GrassController
+from ..iamatest import 
 
 def create_component(key, field):
     """Create Gradio input component based on field type and metadata."""
@@ -57,7 +60,13 @@ def load_config_and_build_ui(config_path="options.json"):
                         inputs=[comp],
                         outputs=[]
                     )
+        run_btn = gr.Button("Run", variant="primary")
+        output = gr.Textbox(label="Status")
+        run_btn.click(fn=run_config, inputs=state, outputs=output)
         return demo
+
+def run_config(state):
+    return "Test"
 
 # Load UI with fallback paths
 try:
@@ -65,6 +74,33 @@ try:
 except FileNotFoundError:
     demo_opts = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
 
+with gr.Blocks(title="Medlands Control Plane") as app:
+    
+    # home page
+    with gr.Row():
+        gr.Markdown("Landing page")
+
+    # TODO: This should configure the experiment...
+    with gr.Row():
+        output=gr.Textbox(label="Grass Test Output")
+        test_btn = gr.Button("Test Grass")
+        test_btn.click(
+            fn=run_grass,
+            inputs=["text", "text"],
+            outputs=["text"]
+        )
+
+    with app.route("Configure", "/config"):
+        gr.Markdown("# Configuration")
+        try:
+            config_demo = load_config_and_build_ui("/app/medlands/scratch/options.json")
+            config_demo.render()
+        except:
+            fallback = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
+            fallback.render()
+
+# launches the app
 if __name__ == "__main__":
-    demo_opts.launch()
-    print("Server up at localhost:7860")   
+    #demo2.launch()
+    app.launch()
+    print("Server up at localhost:7860")
