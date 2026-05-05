@@ -3,6 +3,7 @@ import os
 import json
 import re
 from ..grass_helpers import GrassController
+from ..soildepth_test import SoilDepth
 
 def run_grass(command, input_flags):
     grass = GrassController.default()
@@ -70,8 +71,9 @@ def load_config_and_build_ui(config_path="options.json"):
         return demo
 
 def run_config(state):
-    # TODO print state
-    return "Test"
+    sim = SoilDepth(state)
+    answer = sim.test_me()
+    return answer
 
 
 with gr.Blocks(title="Medlands Control Plane") as app:
@@ -92,14 +94,13 @@ with gr.Blocks(title="Medlands Control Plane") as app:
             outputs=output
         )
 
-with app.route("Configure", "/setup"):
-    gr.Markdown("# Configuration")
+with app.route("ConfigureSoilDepth", "/setupSoilDepth"):
+    gr.Markdown("# Configuration for Soil Depth")
     try:
-        config_demo = load_config_and_build_ui("/app/medlands/scratch/options.json")
-        config_demo.render()
+        config_page = load_config_and_build_ui("/app/medlands/scratch/options.json")
     except:
-        fallback = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
-        fallback.render()
+        config_page = load_config_and_build_ui("/home/moss/dev/Medlands/M2L2/medlands/scratch/options.json")
+    config_page.render()
 
 # launches the app
 if __name__ == "__main__":

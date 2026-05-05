@@ -596,5 +596,382 @@
       "status": "success",
       "runtime": 1
     }
+  },
+  {
+    "command": "g.list type=raster",
+    "command_info": {
+      "timestamp": "2026-04-21T11:15:09.780149",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "g.region raster=init_veg@PERMANENT  -p",
+    "command_info": {
+      "timestamp": "2026-04-21T11:16:34.075159",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.out.gdal input=init_veg@PERMANENT output=veg_t0.tif format=GTiff createopt=\"COMPRESS=DEFLATE\"",
+    "command_info": {
+      "timestamp": "2026-04-21T11:17:46.173007",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.out.gdal input=init_veg@PERMANENT output=/home/moss/dev/Medlands/tmp/veg_t0.tif format=GTiff createopt=\"COMPRESS=DEFLATE\"",
+    "command_info": {
+      "timestamp": "2026-04-21T11:19:47.153700",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.in.gdal input=/home/moss/dev/Medlands/tmp/ecoregion.img output=landis_grass",
+    "command_info": {
+      "timestamp": "2026-04-21T12:17:30.896721",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "r.in.gdal input=/home/moss/dev/Medlands/tmp/ecoregion.img output=landis_grass -o",
+    "command_info": {
+      "timestamp": "2026-04-21T12:18:09.276443",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.import input=/home/moss/dev/Medlands/tmp/ecoregion.img output=landis_grass crs=EPSG:32630 resolution=30 resample=nearest",
+    "command_info": {
+      "timestamp": "2026-04-21T12:22:22.494752",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-21T12:24:15.324477",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bedr_2104_1 soildepth=soil_2104_1 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-21T12:25:07.602296",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-21T12:25:36.806920",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=bedr_2104_1 soildepth=soil_2104_1 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-21T12:25:54.448327",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "failed"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py",
+    "command_info": {
+      "timestamp": "2026-04-21T12:26:58.367708",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "/home/moss/dev/Medlands/M2L2/medlands/r.soildepth.py elev=DEM@PERMANENT bedrock=apr21_bedr1 soildepth=apr21_soil1 min=0.0001 max=20.0 slopebreaks=15,0.5;45,0.15 curvebreaks=-0.015,-0.5;0.015,0.5 smoothingtype=median smoothingsize=3",
+    "command_info": {
+      "timestamp": "2026-04-21T12:27:33.168238",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success",
+      "runtime": 1
+    }
+  },
+  {
+    "command": "r.out.gdal input=apr21_soil1@PERMANENT output=/home/moss/dev/Medlands/tmp/soil_t1.tif format=GTiff createopt=\"COMPRESS=DEFLATE\"",
+    "command_info": {
+      "timestamp": "2026-04-21T12:36:28.314942",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "g.extension extension=r.landscape.evol",
+    "command_info": {
+      "timestamp": "2026-04-21T14:26:00.226258",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success",
+      "runtime": 3
+    }
+  },
+  {
+    "command": "r.landscape.evol",
+    "command_info": {
+      "timestamp": "2026-04-21T14:26:26.447544",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success"
+    }
+  },
+  {
+    "command": "r.landscape.evol elev=DEM@PERMANENT initbdrk=init_bdrk@PERMANENT prefx=levol_ outdem=elevation outsoil=soildepth number=2 r=720 rain=30 storms=2 stormlength=24.0 stormi=0.05",
+    "command_info": {
+      "timestamp": "2026-04-21T14:27:51.424820",
+      "mask2d": false,
+      "mask3d": false,
+      "region": {
+        "projection": 1,
+        "zone": 30,
+        "n": 4293972.81186,
+        "s": 4278955.25018,
+        "w": 722080.0,
+        "e": 738110.0,
+        "nsres": 9.99837662,
+        "ewres": 10.0,
+        "rows": 1502,
+        "cols": 1603,
+        "cells": 2407706
+      },
+      "status": "success",
+      "runtime": 6
+    }
   }
 ]

@@ -27,5 +27,5 @@ PROMPT_COMMAND=grass_prompt
 precmd() { eval "$PROMPT_COMMAND" }
 RPROMPT='${ZLOC}'
 export HOME="/home/moss"
-export PATH="/home/moss/miniconda3/envs/medlands/grass84/bin:/home/moss/miniconda3/envs/medlands/grass84/scripts:/home/moss/.grass8/addons/bin:/home/moss/.grass8/addons/scripts:/home/moss/grass_garbage/addons:/home/moss/miniconda3/envs/medlands/bin:/home/moss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
+export PATH="/home/moss/miniconda3/envs/medlands/grass84/bin:/home/moss/miniconda3/envs/medlands/grass84/scripts:/home/moss/.grass8/addons/bin:/home/moss/.grass8/addons/scripts:/home/moss/miniconda3/envs/medlands/bin:/home/moss/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin"
 trap "exit" TERM
